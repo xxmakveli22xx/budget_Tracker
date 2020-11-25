@@ -11,6 +11,10 @@ request.onupgradeneeded = ({target}) => {
 request.onsuccess = ({target}) => {
     let db = target.result;
     if(navigator.onLine){
-        checkDatabase()
+        checkDatabase();
     }
+}
+function saveDB(record){
+    const transaction = db.transaction(["pending"], "readwrite")
+    
 }
