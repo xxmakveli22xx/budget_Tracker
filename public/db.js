@@ -16,5 +16,19 @@ request.onsuccess = ({target}) => {
 }
 function saveDB(record){
     const transaction = db.transaction(["pending"], "readwrite")
-    
+    const storage = transaction.objectStore("pending");
+    storage.add(record);
+}
+
+request.onerror = function(e){
+    console.log("Error",e.target.errorCode);
+}
+
+function getDataBase(){
+    const transaction = db.transaction(["pending"], "readwrite")
+    const storage = transaction.objectStore("pending");
+    const getall = storage.getAll();
+
+
+
 }
